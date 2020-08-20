@@ -44,11 +44,11 @@ def val_filter(digits, condition=COND_EVEN):
     """
     if condition == COND_EVEN:
         return list(filter(lambda value: value % 2 == 0, digits))
-    elif condition == COND_ODD:
+    if condition == COND_ODD:
         return list(filter(lambda value: value % 2 != 0, digits))
-    elif condition == COND_PRIME:
+    if condition == COND_PRIME:
         return list(filter(is_prime, digits))
-    return list()
+    return []
 
 
 def timer_decorator(func):
@@ -74,15 +74,15 @@ def depth_decorator(func):
     :param func: function to trace
     :return:
     """
-    depth_decorator.depth = 0
+    func.depth = 0
 
     @wraps(func)
     def wrapped(*args):
-        print("_" * depth_decorator.depth * 4, "-->fib({})".format(*args))
-        depth_decorator.depth += 1
+        print("_" * func.depth * 4, "-->fib({})".format(*args))
+        func.depth += 1
         res = func(*args)
-        depth_decorator.depth -= 1
-        print("_" * depth_decorator.depth * 4, "<--fib({})".format(*args))
+        func.depth -= 1
+        print("_" * func.depth * 4, "<--fib({})".format(*args))
         return res
 
     return wrapped
