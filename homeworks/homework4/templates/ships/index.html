@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title -%}
+  Products
+{%- endblock %}
+
+{% block body %}
+  <h1>Ships</h1>
+  <div class="row justify-content-center">
+    <div class="card-deck">
+      {% for ship in items %}
+      <div class="card" style="max-width: 16rem;">
+        <img src="{{ url_for('static', filename='img/'+ship.img_id+'.jpg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ ship["name"] }}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Mass: {{ ship["mass"] }}</li>
+            <li class="list-group-item">Sublight speed: {{ ship["speed"] }}</li>
+            <li class="list-group-item">Jump range: {{ ship["jump"] }}</li>
+          </ul>
+          <a href="{{ url_for('product_app.ship_detail', identifier=ship['id']) }}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block after_body %}
+  <script>
+    $(function () {
+      const productItems = $('.product-item')
+      console.log(productItems)
+    });
+  </script>
+{% endblock %}
