@@ -1,0 +1,5 @@
+/.idea/
+/venv/
+*.egg-info/
+/data/
+/ship-showdown/__pycache__/

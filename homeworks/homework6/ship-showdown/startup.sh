@@ -1,0 +1,1 @@
+./wait-for-it.sh -h $PG_HOST -p 5432 -t 30 -- python -m flask db upgrade && python main.py
