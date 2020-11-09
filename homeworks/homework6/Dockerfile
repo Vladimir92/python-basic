@@ -36,7 +36,7 @@ EXPOSE 5000/tcp
 #RUN ["python", "-m", "flask", "db", "upgrade"]
 
 # Run main app file
-CMD ["python", "-m", "timeit", "-n", "3", "import time; time.sleep(3)"]
+CMD ["bash", "./startup.sh"]
 
 # Run container with 
 # docker run -p 5000:5000 --name <container_name> <image>:<tag>

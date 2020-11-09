@@ -22,7 +22,7 @@ services:
       PG_HOST: pg
       TRG_ENV: prod
     volumes:
-    - ./my-shop:/app
+    - ./ship-showdown:/app
     ports:
       - 5000:5000
     depends_on:
