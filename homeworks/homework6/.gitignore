@@ -3,3 +3,4 @@
 *.egg-info/
 /data/
 /ship-showdown/__pycache__/
+/ship-showdown/models/__pycache__/

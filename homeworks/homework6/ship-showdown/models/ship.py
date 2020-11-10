@@ -11,5 +11,5 @@ class Ship(db.Model):
     mass = Column(Integer, default=0)
     speed = Column(Integer, default=0)
     jump = Column(Integer, default=0)
-    img_id = Column(Integer, default=0)
+    img_id = Column(String, nullable=True)
     deleted = Column(Boolean, nullable=False, default=False, server_default='false')

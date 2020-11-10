@@ -24,7 +24,7 @@ def add_ship():
             mass = int(request.form.get('mass'))
             speed = int(request.form.get('speed'))
             jump = int(request.form.get('jump'))
-            img_id = int(request.form.get('img_id'))
+            img_id = request.form.get('img_id')
             s = Ship(name=name, mass=mass, speed=speed, jump=jump, img_id=img_id)
             db.session.add(s)
             db.session.commit()
