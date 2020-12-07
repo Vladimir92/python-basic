@@ -30,10 +30,6 @@ COPY ship-showdown .
 
 EXPOSE 5000/tcp
 
-# Prepare data in DB
-# ENTRYPOINT "pg-check.sh ${PG_HOST} && python -m flask db upgrade && python main.py"
-#RUN ["python", "-m", "flask", "db", "upgrade"]
-
 # Run main app file
 CMD ["bash", "./startup.sh"]
 
