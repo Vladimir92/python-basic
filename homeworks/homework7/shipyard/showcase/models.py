@@ -6,7 +6,7 @@ class Manufacturer(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
 
-class Internals(models.Model):
+class Internal(models.Model):
     amount = models.PositiveSmallIntegerField()
 
 class Weaponry(models.Model):
