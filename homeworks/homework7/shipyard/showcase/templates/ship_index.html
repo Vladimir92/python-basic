@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Shipyard{% endblock %}
+{% block page_content %}
+<h1>Available ships</h1>
+<div class="row justify-content-center"></div>
+    <div class="card-deck">
+        {% for ship in ships %}
+        <div class="card">    
+            <img class="card-img-top" src="{% static 'ship.jpg' %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ ship.title }}</h5>
+                <p class="card-text">{{ ship.description }}</p>
+                <a href="{% url 'ship_detail' ship.pk %}"
+                    class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
