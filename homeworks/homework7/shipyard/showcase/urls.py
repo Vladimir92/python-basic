@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import ship_detail, ship_index
+from .views import ShipListView, ShipDetailView
 
 
 urlpatterns = [
-    path("", ship_index, name="ship_index"),
-    path("<int:pk>/", ship_detail, name="ship_detail"),
+    path("", ShipListView.as_view(), name="ship_index"),
+    path("<int:pk>/", ShipDetailView.as_view(), name="ship_detail"),
 ]

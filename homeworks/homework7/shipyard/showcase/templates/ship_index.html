@@ -5,7 +5,7 @@
 <h1>Available ships</h1>
 <div class="row justify-content-center"></div>
     <div class="card-deck">
-        {% for ship in ships %}
+        {% for ship in object_list %}
         <div class="card">    
             <img class="card-img-top" src="{% static 'ship.jpg' %}">
             <div class="card-body">

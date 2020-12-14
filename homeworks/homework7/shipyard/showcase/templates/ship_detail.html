@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ ship.title }}{% endblock %}
+{% block title %}{{ object.title }}{% endblock %}
 {% block page_content %}
 <div class="row mt-4 justify-content-center">
     <div class="col-md-8">
         <img src="{% static 'ship.jpg' %}" alt="" width="100%">
     </div>
     <div class="col-md-4">
-        <h5>About the ship:</h5>
-        <p>{{ ship.description }}</p>
+        <h5>About the object:</h5>
+        <p>{{ object.description }}</p>
         <br>
         <h5>Manufactured by:</h5>
-        <p>{{ ship.manufacturer }}</p>
+        <p>{{ object.manufacturer }}</p>
         <br>
         <h5>Unladen mass:</h5>
-        <p>{{ ship.mass }} kg</p>
+        <p>{{ object.mass }} kg</p>
         <br>
         <h5>Internals:</h5>
-        <p>{{ ship.internals.typing }}</p>
+        <p>{{ object.internals.typing }}</p>
         <br>
         <h5>Weaponry:</h5>
-        <p>{{ ship.weapons.model }}</p>
+        <p>{{ object.weapons.model }}</p>
         <br>
         <h5>Price:</h5>
-        <p>{{ ship.price }} credits</p>
+        <p>{{ object.price }} credits</p>
         <a href="{% url 'ship_index' %}" class="btn btn-primary">Back to list ➡</a>
     </div>
 </div>
