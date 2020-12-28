@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title -%}
+  Product #{{ product_id }}
+{%- endblock %}
+
+{% block body %}
+  <h1 class="display-3">{{ ship["name"] }}</h1>
+  <hr>
+  {% for key in ship %}
+    {% if key != "id" %}
+    <p class="text-info">{{ key }} is {{ ship[key] }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr>
+  <a href="{{ url_for('product_app.ship_list') }}">Back to list ➡ </a>
+  <hr>
+  <div>
+    <button id="delete-product" class="btn btn-danger btn-lg">Delete</button>
+  </div>
+{% endblock %}
+
+{% block after_body %}
+  <script>
+  $(function() {
+    const name = $('#ship["name"]')
+    console.log(name.text())
+
+    $('#delete-product').click(function () {
+      $.ajax({
+        method: 'DELETE',
+        success: function (res) {
+          console.log(res)
+          console.log(res.data)
+        },
+        error: function (err) {
+          console.error(err)
+        },
+        complete: function () {
+          window.location = '{{ url_for('product_app.ship_list') }}'
+        },
+      })
+    })
+  });
+  </script>
+{% endblock %}
